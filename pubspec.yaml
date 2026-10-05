@@ -1,0 +1,49 @@
+name: this_or_that_naija
+description: Fast-paced Nigerian micro-polling & cultural banter game.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Firebase Suite
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
+
+  # State Management
+  flutter_riverpod: ^2.6.1
+
+  # Local Key-Value Persistence
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # Interaction, Card Deck & Animations
+  flutter_card_swiper: ^7.0.0
+  flutter_animate: ^4.5.0
+  confetti: ^0.7.0
+
+  # Image Export & Social Sharing
+  screenshot: ^3.0.0
+  share_plus: ^10.1.1
+  path_provider: ^2.1.4
+
+  # Styling & Helpers
+  google_fonts: ^6.2.1
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/seed_questions.json
+

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "chow_001",
+    "category": "chow",
+    "isActive": true,
+    "optionA": { "text": "Party Jollof", "banter": "Bottom pot or nothing" },
+    "optionB": { "text": "Fried Rice", "banter": "Soft life committee" },
+    "countA": 1820,
+    "countB": 940,
+    "totalVotes": 2760
+  },
+  {
+    "id": "street_002",
+    "category": "street",
+    "isActive": true,
+    "optionA": { "text": "Danfo", "banter": "Conductor shouting enter with your change" },
+    "optionB": { "text": "Keke Napep", "banter": "Wind hitting your face in traffic" },
+    "countA": 890,
+    "countB": 1450,
+    "totalVotes": 2340
+  },
+  {
+    "id": "lifestyle_003",
+    "category": "lifestyle",
+    "isActive": true,
+    "optionA": { "text": "Lekki Toll Gate Queue", "banter": "Card declined at the booth" },
+    "optionB": { "text": "Third Mainland Traffic", "banter": "Sleeping from 6 AM till 8 AM" },
+    "countA": 420,
+    "countB": 1980,
+    "totalVotes": 2400
+  },
+  {
+    "id": "campus_004",
+    "category": "campus",
+    "isActive": true,
+    "optionA": { "text": "Night Class Reading", "banter": "Mosquitoes keeping you awake" },
+    "optionB": { "text": "4 AM Flash Prep", "banter": "Adrenaline exam savior" },
+    "countA": 1150,
+    "countB": 1340,
+    "totalVotes": 2490
+  }
+]

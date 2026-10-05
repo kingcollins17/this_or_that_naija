@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Questions collection
+    match /questions/{questionId} {
+      allow read: if true;
+      
+      // Only allow increments of countA, countB, and totalVotes by exactly 1
+      allow update: if request.auth != null &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['countA', 'countB', 'totalVotes']) &&
+        (
+          (request.resource.data.countA == resource.data.countA + 1 && request.resource.data.totalVotes == resource.data.totalVotes + 1) ||
+          (request.resource.data.countB == resource.data.countB + 1 && request.resource.data.totalVotes == resource.data.totalVotes + 1)
+        );
+      allow create, delete: if false;
+
+      // Nested Comments Subcollection
+      match /comments/{commentId} {
+        allow read: if true;
+        allow create: if request.auth != null &&
+          request.resource.data.userId == request.auth.uid &&
+          request.resource.data.selectedOption in ['A', 'B'] &&
+          request.resource.data.text is string &&
+          request.resource.data.text.trim().size() > 0 &&
+          request.resource.data.text.size() <= 280;
+        allow update, delete: if false;
+      }
+    }
+
+    // User Voting History
+    match /users/{userId}/votes/{questionId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // User Suggestions
+    match /submissions/{submissionId} {
+      allow create: if request.auth != null &&
+        request.resource.data.keys().hasAll(['optionA', 'optionB', 'category', 'userId']) &&
+        request.resource.data.userId == request.auth.uid;
+      allow read, update, delete: if false;
+    }
+  }
+}
